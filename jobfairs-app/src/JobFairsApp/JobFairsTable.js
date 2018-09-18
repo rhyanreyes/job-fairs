@@ -85,7 +85,7 @@ class JobFairsTable extends Component {
 
     const { jobFairsList } = this.props;
 
-    console.log("render data: ", data);
+    // console.log("render data: ", data);
 
     return (
       <div>

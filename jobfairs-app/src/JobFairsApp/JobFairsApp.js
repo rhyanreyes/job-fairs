@@ -49,13 +49,13 @@ class JobFairsApp extends Component {
   listAllJobFairs = () => {
     listAllJobFairsGet()
       .then(response => {
-        console.log("All Job Fairs GET success!");
-        console.log(response);
+        // console.log("All Job Fairs GET success!");
+        // console.log(response);
 
         this.setState({ jobFairsList: response.data });
       })
       .catch(error => {
-        console.log("All Job Fairs GET failed!");
+        // console.log("All Job Fairs GET failed!");
         console.log(error);
       });
   };
@@ -88,9 +88,9 @@ class JobFairsApp extends Component {
       jobFairsList
     } = this.state;
 
-    console.log("render targetedJobFairsList: ", targetedJobFairsList);
-    console.log("render cityCareerFairsList: ", cityCareerFairsList);
-    console.log("render jobFairsList: ", jobFairsList);
+    // console.log("render targetedJobFairsList: ", targetedJobFairsList);
+    // console.log("render cityCareerFairsList: ", cityCareerFairsList);
+    // console.log("render jobFairsList: ", jobFairsList);
 
     return (
       <div>
