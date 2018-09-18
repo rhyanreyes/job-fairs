@@ -13,3 +13,9 @@ export function listCityCareerFairsGet() {
 
   return axios.get(url);
 }
+
+export function listAllJobFairsGet() {
+  const url = "/api/jobfairs";
+
+  return axios.get(url);
+}

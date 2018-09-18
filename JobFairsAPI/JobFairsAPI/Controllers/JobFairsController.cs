@@ -20,6 +20,14 @@ namespace JobFairsAPI.Controllers
             this.jobFairsService = jobFairsService;
         }
 
+        [Route, HttpGet]
+        public HttpResponseMessage GetJobFairs()
+        {
+            List<JobFair> jobFairs = jobFairsService.GetJobFairs();
+
+            return Request.CreateResponse(HttpStatusCode.OK, jobFairs);
+        }
+
         [Route("targeted"), HttpGet]
         public HttpResponseMessage GetTargetedJobFairs()
         {

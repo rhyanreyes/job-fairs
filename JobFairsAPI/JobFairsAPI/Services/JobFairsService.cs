@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Text;
 using System.Web;
 
 namespace JobFairsAPI.Services
@@ -47,7 +48,8 @@ namespace JobFairsAPI.Services
             List<CityCareerFair> careerFairs = new List<CityCareerFair>();
             var webClient = new WebClient();
             string webPage = "http://citycareerfair.com/schedule/";
-            var html = webClient.DownloadString(webPage);
+            var bytes = webClient.DownloadData(webPage);
+            var html = Encoding.UTF8.GetString(bytes);
             var parser = new HtmlParser();
             var document = parser.Parse(html);
             string jQuerySelectTable = ".et_pb_promo_description";
@@ -58,6 +60,10 @@ namespace JobFairsAPI.Services
             {
                 CityCareerFair careerFair = new CityCareerFair();
                 careerFair.DateEventName = row.QuerySelector("a").TextContent;
+                //const char V = Encoding.UTF8.GetChars(byte.Parse("•"));
+                //string[] val = row.QuerySelector("a").TextContent.Split(V);
+                //careerFair.Date = val[0];
+                //careerFair.EventName = val[1];
                 careerFair.EventLink = row.QuerySelector("a").GetAttribute("href");
                 careerFair.JobFairSite = "http://citycareerfair.com";
                 careerFair.JobFairSiteName = "City Career Fair";
@@ -68,13 +74,13 @@ namespace JobFairsAPI.Services
             return careerFairs;
         }
 
-        //public List<JobFair> GetJobFairs()
-        //{
-        //    List<JobFair> jobFairs = new List<JobFair>();
-        //    List<TargetedJobFair> targetedJobFairs = GetTargetedJobFairs();
-        //    List<CityCareerFair> cityCareerFairs = GetCityCareerFairs();
+        public List<JobFair> GetJobFairs()
+        {
+            List<JobFair> jobFairs = new List<JobFair>();
+            jobFairs.AddRange(GetTargetedJobFairs());
+            jobFairs.AddRange(GetCityCareerFairs());
 
-            
-        //}
+            return jobFairs;
+        }
     }
 }
