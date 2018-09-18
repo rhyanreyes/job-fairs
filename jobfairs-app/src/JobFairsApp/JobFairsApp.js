@@ -75,12 +75,6 @@ class JobFairsApp extends Component {
     this.listAllJobFairs();
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    // if (this.state.cityCareerFairsList !== prevState.cityCareerFairsList) {
-    //   this.combineJobFairs();
-    // }
-  }
-
   render() {
     const {
       targetedJobFairsList,
@@ -94,7 +88,7 @@ class JobFairsApp extends Component {
 
     return (
       <div>
-        <h1>Job Fairs using the Web Scraper!</h1>
+        <h1>Job Fairs using the Web Scraper</h1>
         <JobFairsTable jobFairsList={jobFairsList} />
       </div>
     );

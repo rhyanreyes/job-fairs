@@ -89,7 +89,7 @@ class JobFairsTable extends Component {
 
     return (
       <div>
-        <h1>Job Fairs Table!</h1>
+        <h1>Job Fairs Table</h1>
         <Container>
           <Table sortable celled fixed>
             <Table.Header>
