@@ -5,7 +5,7 @@ using System.Web;
 
 namespace JobFairsAPI.Models.Domain
 {
-    public class TargetedJobFair
+    public class TargetedJobFair : JobFair
     {
         public string Date { get; set; }
         public string Location { get; set; }
